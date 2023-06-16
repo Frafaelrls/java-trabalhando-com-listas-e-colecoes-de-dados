@@ -1,8 +1,8 @@
 package br.com.alura.compras;
 
-public class Compra {
-    private String descricao;
-    private double valor;
+public class Compra implements Comparable<Compra> {
+    private final String descricao;
+    private final double valor;
 
     public Compra(String descricao, double valor) {
         this.descricao = descricao;
@@ -21,5 +21,10 @@ public class Compra {
     public String toString() {
         return "Compra: Descrição: " + descricao +
                 " Valor: " + valor;
+    }
+
+    @Override
+    public int compareTo(Compra outraCompra) {
+        return Double.compare(this.valor, outraCompra.valor);
     }
 }
